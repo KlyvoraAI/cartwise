@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="Plan your grocery trips, compare prices, and spend smarter with CartWise.">
+  <title>CartWise — Shop smarter</title>
+  <link rel="icon" type="image/svg+xml" href="/cartwise.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="CartWise home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 11h4l3.1 15.1a3 3 0 0 0 3 2.4h11.7a3 3 0 0 0 2.9-2.3L35 16H14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 34h.1M29 34h.1" stroke="currentColor" stroke-width="4.4" stroke-linecap="round"/><path d="m19 8 3 3 6-6" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>cartwise</span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-item" data-view="lists"><span class="nav-icon">☷</span> Shopping lists</button>
+        <button class="nav-item" data-view="compare"><span class="nav-icon">⌕</span> Price compare</button>
+        <button class="nav-item" data-view="spending"><span class="nav-icon">↗</span> Spending</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="tip-card"><span class="tip-spark">✳</span><strong>Small swaps add up.</strong><p>Compare a few everyday staples to spot easy savings.</p></div>
+        <div class="profile"><div class="avatar">C</div><div><strong>Your household</strong><span>Local workspace</span></div><span class="profile-dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark small">✓</span> cartwise</div>
+        <div class="breadcrumb">Your workspace <span>/</span> <strong id="crumb">Overview</strong></div>
+        <div class="top-actions"><span class="privacy"><i></i> Your data stays on this device</span><button class="button button-dark" id="quick-add">＋ New list</button></div>
+      </header>
+
+      <section class="view active-view" id="view-overview">
+        <div class="welcome-row"><div><div class="eyebrow">MONDAY, LET'S MAKE IT COUNT</div><h1>Good shopping starts <em>here.</em></h1><p class="subhead">Plan your groceries, compare prices, and keep more in your pocket.</p></div><div class="hero-art" aria-hidden="true"><div class="hero-circle"></div><span class="hero-leaf">✳</span><div class="hero-bag">🛍️</div><span class="hero-dot dot-a"></span><span class="hero-dot dot-b"></span></div></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Active lists</span><span class="stat-icon mint">☷</span></div><div class="stat-value" id="stat-lists">0</div><div class="stat-foot">Ready for your next trip</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Items to get</span><span class="stat-icon yellow">◈</span></div><div class="stat-value" id="stat-items">0</div><div class="stat-foot">Across all your lists</div></article>
+          <article class="stat-card"><div class="stat-top"><span>This month's spend</span><span class="stat-icon lilac">$</span></div><div class="stat-value" id="stat-spend">$0.00</div><div class="stat-foot">Based on purchases you log</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Tracked savings</span><span class="stat-icon peach">↘</span></div><div class="stat-value" id="stat-savings">$0.00</div><div class="stat-foot">From your price comparisons</div></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel lists-panel"><div class="panel-heading"><div><div class="eyebrow">YOUR PLANS</div><h2>Shopping lists</h2></div><button class="text-button" data-goto="lists">View all <span>→</span></button></div><div id="overview-lists" class="list-preview empty-state"><div class="empty-illustration">🧺</div><strong>Your next great shop starts with a list.</strong><p>Create a list to organize everything you need.</p><button class="button button-green" id="create-first">Create a shopping list</button></div></section>
+          <section class="panel compare-panel"><div class="panel-heading"><div><div class="eyebrow">SHOP WITH CONFIDENCE</div><h2>Find a better price</h2></div><span class="pill live-pill">LIVE SEARCH</span></div><p class="panel-copy">Search grocery products and compare available retailer offers side by side.</p><form class="search-form" id="quick-search"><span>⌕</span><input id="quick-query" placeholder="Try eggs, coffee, olive oil..." aria-label="Search grocery products"><button type="submit" aria-label="Search">→</button></form><div class="search-hint">Compare listings and check the product details before you buy.</div><div class="quick-categories"><button data-search="eggs">Eggs</button><button data-search="milk">Milk</button><button data-search="coffee">Coffee</button><button data-search="olive oil">Olive oil</button></div></section>
+        </div>
+        <section class="panel activity-panel"><div class="panel-heading"><div><div class="eyebrow">KEEP AN EYE ON IT</div><h2>Recent activity</h2></div><button class="text-button" data-goto="spending">Spending tracker <span>→</span></button></div><div id="recent-activity" class="activity-empty">Your purchase log will show up here when you start tracking spending.</div></section>
+      </section>
+
+      <section class="view" id="view-lists">
+        <div class="page-heading"><div><div class="eyebrow">PLAN YOUR NEXT SHOP</div><h1>Shopping lists</h1><p class="subhead">Keep your essentials organized and ready to reuse.</p></div><button class="button button-dark" id="new-list">＋ Create list</button></div>
+        <div id="lists-container" class="lists-grid"></div>
+      </section>
+
+      <section class="view" id="view-compare">
+        <div class="page-heading"><div><div class="eyebrow">MAKE EVERY DOLLAR GO FURTHER</div><h1>Compare prices</h1><p class="subhead">Look across retailer listings to find a better value.</p></div></div>
+        <section class="panel search-page-panel"><form class="search-form large-search" id="product-search"><span>⌕</span><input id="product-query" placeholder="What are you shopping for?" aria-label="Product search"><input id="location-input" class="location-input" placeholder="ZIP or city (optional)" aria-label="Shopping location"><button type="submit">Compare prices <span>→</span></button></form><div class="search-hint">Results come from available online shopping listings. Prices, sizes, and availability can vary by location.</div></section>
+        <div id="search-status" class="search-status"></div>
+        <div id="results-summary" class="results-summary"></div>
+        <div id="product-results" class="product-grid"></div>
+      </section>
+
+      <section class="view" id="view-spending">
+        <div class="page-heading"><div><div class="eyebrow">YOUR HOUSEHOLD AT A GLANCE</div><h1>Spending tracker</h1><p class="subhead">Log grocery trips and see where your household budget goes.</p></div><button class="button button-dark" id="log-purchase">＋ Log purchase</button></div>
+        <div class="spending-overview"><div class="spend-highlight"><span class="muted-label">TOTAL LOGGED THIS MONTH</span><strong id="month-total">$0.00</strong><span class="spend-note">Based on purchases you add to CartWise</span></div><div class="spend-highlight"><span class="muted-label">TOTAL PURCHASES</span><strong id="purchase-count">0</strong><span class="spend-note">Shopping trips recorded</span></div><div class="spend-highlight"><span class="muted-label">AVERAGE PER TRIP</span><strong id="average-trip">$0.00</strong><span class="spend-note">Across your logged trips</span></div></div>
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">PURCHASE HISTORY</div><h2>Your grocery trips</h2></div></div><div id="purchase-list" class="purchase-list empty-state"><div class="empty-illustration">🧾</div><strong>No purchases logged yet</strong><p>Add a grocery trip to start tracking your household spending.</p></div></section>
+      </section>
+
+      <footer class="footer"><span>CartWise</span><span>Shop thoughtfully. Save where it counts.</span></footer>
+    </main>
+  </div>
+
+  <dialog id="list-dialog" class="modal"><form method="dialog" id="list-form"><button class="modal-close" aria-label="Close">×</button><div class="eyebrow">A FRESH START</div><h2 id="list-dialog-title">Create a shopping list</h2><label for="list-name">List name</label><input id="list-name" required maxlength="50" placeholder="e.g. Weekly groceries"><label for="list-note">Note <span>(optional)</span></label><input id="list-note" maxlength="100" placeholder="e.g. Sunday meal prep"><div class="modal-actions"><button type="button" class="button button-light" data-close="list-dialog">Cancel</button><button class="button button-dark" type="submit">Save list</button></div></form></dialog>
+
+  <dialog id="purchase-dialog" class="modal"><form method="dialog" id="purchase-form"><button class="modal-close" aria-label="Close">×</button><div class="eyebrow">ADD TO YOUR TRACKER</div><h2>Log a grocery trip</h2><label for="purchase-store">Store</label><input id="purchase-store" required maxlength="60" placeholder="e.g. Walmart"><label for="purchase-amount">Total spent ($)</label><input id="purchase-amount" required type="number" min="0.01" max="100000" step="0.01" placeholder="0.00"><label for="purchase-date">Date</label><input id="purchase-date" type="date" required><label for="purchase-note">Note <span>(optional)</span></label><input id="purchase-note" maxlength="100" placeholder="e.g. Weekly groceries"><div class="modal-actions"><button type="button" class="button button-light" data-close="purchase-dialog">Cancel</button><button class="button button-dark" type="submit">Save purchase</button></div></form></dialog>
+
+  <dialog id="items-dialog" class="modal items-modal"><form method="dialog" id="items-form"><button class="modal-close" aria-label="Close">×</button><div class="eyebrow">YOUR SHOPPING PLAN</div><h2 id="items-title">Your list</h2><div class="add-item-row"><input id="item-name" placeholder="Add an item..." maxlength="80" aria-label="New item"><input id="item-qty" placeholder="Qty" value="1" maxlength="12" aria-label="Quantity"><button class="button button-green" type="button" id="add-item">Add</button></div><div id="items-content"></div><div class="list-total-row"><span>Estimated list total</span><strong id="list-estimate">$0.00</strong></div><div class="modal-actions"><button type="button" class="button button-light" data-close="items-dialog">Done</button><button type="button" class="button button-dark" id="compare-list">Compare list items</button></div></form></dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
